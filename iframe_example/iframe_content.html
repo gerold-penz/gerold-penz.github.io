@@ -59,7 +59,7 @@
             if (!!parent && !!parent.postMessage) {
                 // initialization
                 document.body.style.overflowY = "hidden";
-                setTimeout(sendHeight, 200);
+                setTimeout(sendHeight, 100);
                 // watch window resize
                 window.addEventListener("resize", sendHeight);
             }
