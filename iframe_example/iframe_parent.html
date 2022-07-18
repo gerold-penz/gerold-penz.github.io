@@ -1,1 +1,41 @@
-I am the Iframe parent.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe parent</title>
+    <style>
+        body {
+            background-color: silver;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        I am the Iframe parent.
+    </h1>
+
+
+    <iframe src="iframe_content.html">
+    </iframe>
+
+
+    <script>
+        var iframe = document.querySelector('iframe');
+
+        function handleDocHeightMsg(e) {
+            iframe.style.height = e.data.height + 'px';
+        }
+
+        window.onload = function () {
+            window.addEventListener('message', handleDocHeightMsg, false)
+        }
+    </script>
+
+</body>
+
+</html>
