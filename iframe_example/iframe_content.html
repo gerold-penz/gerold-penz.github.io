@@ -1,1 +1,73 @@
-I am the Iframe content.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe content</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        I am the Iframe content.
+    </h1>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquid temporibus commodi, asperiores
+        consectetur quisquam? Culpa necessitatibus dolores non earum quaerat quisquam ipsam perferendis, ea deserunt,
+        exercitationem labore officiis voluptatum!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquid temporibus commodi, asperiores
+        consectetur quisquam? Culpa necessitatibus dolores non earum quaerat quisquam ipsam perferendis, ea deserunt,
+        exercitationem labore officiis voluptatum!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquid temporibus commodi, asperiores
+        consectetur quisquam? Culpa necessitatibus dolores non earum quaerat quisquam ipsam perferendis, ea deserunt,
+        exercitationem labore officiis voluptatum!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquid temporibus commodi, asperiores
+        consectetur quisquam? Culpa necessitatibus dolores non earum quaerat quisquam ipsam perferendis, ea deserunt,
+        exercitationem labore officiis voluptatum!
+    </p>
+
+
+    <script>
+
+        (function () {
+
+            // send height to parent window
+            function sendHeight() {
+                try {
+                    parent.postMessage({ "height": document.body.getBoundingClientRect().bottom }, "*");
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+
+            if (!!parent && !!parent.postMessage) {
+                // initialization
+                document.body.style.overflowY = "hidden";
+                sendHeight();
+                // watch window resize
+                window.addEventListener("resize", sendHeight);
+            }
+
+        })()
+
+    </script>
+
+</body>
+
+</html>
